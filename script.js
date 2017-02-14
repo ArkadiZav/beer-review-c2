@@ -8,8 +8,12 @@
 //Create an event handler that invokes addBeer when the '.post-beer' button gets clicked,
 //and pass in the "beer name" and "category" that the user entered.
 
+var beers = [];
+
 var addBeer = function(name, category) {
-  alert(name + category);
+  var newBeer = {beerName: name, beercategory: category};
+  beers.push(newBeer);
+  console.log(beers); 
 };
 
 var eventHandler = function() {
