@@ -11,25 +11,29 @@
 // then loop through the beers array and append the beers to the '.beers-list' ul.
 // Invoke this function inside your '.post-beer' click handler just below where you're invoking the addBeer function.
 
+// exercise 4:
+// Add another select to your form so that users can rate each beer from 0 to 5.
+// Append the new information to the page.
+
 var beers = [];
 
-var addBeer = function(name, category) {
-  var newBeer = {beerName: name, beercategory: category};
+var addBeer = function(name, category, rating) {
+  var newBeer = {beerName: name, beerCategory: category, beerRating: rating};
   beers.push(newBeer);
-  console.log(beers);
 };
 
 var updateBeers = function() {
   $("ul").empty();
   for (var i = 0; i < beers.length; i++) {
-    $("ul").append("<li> <strong> <u> name</u></strong>: " +beers[i].beerName + "<br><strong> <u> category</u></strong>: " + beers[i].beercategory + "</li>");
+    $("ul").append("<li> <strong> <u> name</u></strong>: " +beers[i].beerName + "<br><strong> <u> category</u></strong>: " + beers[i].beerCategory + "<br><strong> <u> rating</u></strong>: " + beers[i].beerRating + "</li>");
   }
 };
 
 var eventHandler = function() {
   var $beerInput = $("#beername").val();
   var $categoryInput = $("#beercategory").val();
-  $(".post-beer").on("click", addBeer($beerInput, $categoryInput));
+  var $ratingInput = $("#beerrating option:selected").val();
+  $(".post-beer").on("click", addBeer($beerInput, $categoryInput, $ratingInput));
   updateBeers();
 };
 

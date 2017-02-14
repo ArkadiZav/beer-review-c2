@@ -23,19 +23,26 @@
         <h3>Add a New Beer</h3>
 
         <div class="form-group">
-          <input type="text"
-            class="beer-input form-control" id = "beername"
-            placeholder="Beer Name">
+          <input type="text" class="beer-input form-control" id = "beername" placeholder="Beer Name">
           </input>
         </div>
         <div class="form-group">
-          <input type="text"
-            class="category-input form-control" id = "beercategory"
-            placeholder="Category">
+          <input type="text" class="category-input form-control" id = "beercategory" placeholder="Category">
           </input>
         </div>
+        <div class = "rating">
+          <select id = "beerrating">
+            <option value = "default" selected disabled hidden> Select rating </option>
+            <option value = "0"> 0 </option>
+            <option value = "1"> 1 </option>
+            <option value = "2"> 2 </option>
+            <option value = "3"> 3 </option>
+            <option value = "4"> 4 </option>
+            <option value = "5"> 5 </option>
+          </select>
+        </div>
         <button class="btn btn-primary post-beer" type="button">Post</button>
-      </form>
+        </form>
 
     </div>
   </div>
