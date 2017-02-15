@@ -15,7 +15,11 @@
 // Add another select to your form so that users can rate each beer from 0 to 5.
 // Append the new information to the page.
 
+// Add another button to your page that will sort the beers on the page by rating when clicked.
+// If it gets clicked again, reverse the order (if they were sorted in ascending order, sort in descending and vice-versa).
+
 var beers = [];
+var flag = false;
 
 var addBeer = function(name, category, rating) {
   var newBeer = {beerName: name, beerCategory: category, beerRating: rating};
@@ -29,7 +33,7 @@ var updateBeers = function() {
   }
 };
 
-var eventHandler = function() {
+var postHandler = function() {
   var $beerInput = $("#beername").val();
   var $categoryInput = $("#beercategory").val();
   var $ratingInput = $("#beerrating option:selected").val();
@@ -37,4 +41,21 @@ var eventHandler = function() {
   updateBeers();
 };
 
-$("button").on("click", eventHandler);
+var sortHandler = function() {
+  if (flag) {
+    flag = false;
+    beers.sort(function(a, b) {
+    return parseFloat(a.beerRating) - parseFloat(b.beerRating);
+    });
+  }
+  else {
+    flag = true;
+    beers.sort(function(a, b) {
+    return parseFloat(b.beerRating) - parseFloat(a.beerRating);
+  });
+  }
+  updateBeers();
+};
+
+$(".post-beer").on("click", postHandler);
+$(".sort-beer").on("click", sortHandler);
